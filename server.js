@@ -11,7 +11,7 @@ const fs = require('fs');
 // const uid = new ShortUniqueId();
 // const { notes } = require('./db/db.json');
 // const apiRoutes = require('./routes/apiRoutes');
-// const htmlRoutes = require('./routes/htmlRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
 
 /* app.use() method. This is a method executed by our Express.js server that mounts a function to the server that our requests will pass through before getting to the intended endpoint. The functions we can mount to our server are referred to as middleware. */
 /* In order for our server to accept incoming data the way we need it to, we need to tell our Express.js app to intercept our POST request before it gets to the callback function. At that point, the data will be run through a couple of functions to take the raw data transferred over HTTP and convert it to a JSON object. */
@@ -48,26 +48,7 @@ app.post('/api/notes', (req, res) => { // used to be app.post
 
 // Any time a client navigates to <ourhost>/api, the app will use the router we set up in apiRoutes. If / is the endpoint, then the router will serve back our HTML routes.
 //app.use('/api', apiRoutes);
-// app.use('/', htmlRoutes);
-router.get('/notes', (req, res) => { // used to be app.get
-  res.sendFile(path.join(__dirname, '../public/notes.html'));
-});
-
-router.get('/', (req, res) => { 
-  // we use sendFile when sending an HTML page to browser
-  // __dirname, which represents the directory of the file we execute the code in '/'
-  // with the path of where to find the index.html file
-  res.sendFile(path.join(__dirname, '../public/index.html'));
-});
-
-// GET * should return the index.html file.
-// in case a user requests a non-existent path
-// * is a wildcard, meaning any route that wasn't previously defined will fall
-// under this request and will receive the homepage as the response
-// in order of routes, * should always come last!!!!
-router.get('*', (req, res) => { // used to be app.get
-  res.sendFile(path.join(__dirname, '../public/index.html'));
-});
+app.use('/', htmlRoutes);
 
 /*
 Now we just need to use one method to make our server listen. We're going to chain the listen() method onto our server to do it
