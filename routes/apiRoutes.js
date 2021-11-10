@@ -4,8 +4,6 @@ const fs = require('fs');
 //const { getAndRenderNotes, getNotes } = require('../public/assets/js/index');
 // const path = require('path');
 
-// The following API routes should be created:
-
 // GET /api/notes should read the db.json file and return all saved notes as JSON.
 // route that the front-end can request data from
 /* the get() method requires two arguments. 
@@ -13,12 +11,12 @@ const fs = require('fs');
 2. a callback function that will execute every time that route is accessed with a GET request. */
 
 router.get('/notes', (req, res) => {
-    //console.log(notes);
+
     fs.readFile("./db/db.json", (err, data) => {
         let savedNotes = JSON.parse(data);
         res.json(savedNotes);
         savedNotesString = JSON.stringify(savedNotes);
-        console.log(savedNotesString + 'note was parsed in get method');
+        console.log(savedNotesString + 'note was parsed in GET method');
     });
   });
   
@@ -27,7 +25,7 @@ router.get('/notes', (req, res) => {
   router.post('/notes', (req, res) => { // used to be app.post
     // With POST requests, we can package up data, typically as an object, and send it to the server
     // req.body property is where we can access that data on the server side and do something with it
-    let savedNotes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+      let savedNotes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
       let newNote = req.body;
       let uniqueID = (savedNotes.length).toString();
       newNote.id = uniqueID;
