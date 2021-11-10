@@ -12,7 +12,7 @@ const fs = require('fs');
 1. a string that describes the route the client will have to fetch from. 
 2. a callback function that will execute every time that route is accessed with a GET request. */
 
-router.get('/api/notes', (req, res) => {
+router.get('/notes', (req, res) => {
     //console.log(notes);
     fs.readFile("./db/db.json", (err, data) => {
         let savedNotes = JSON.parse(data);
@@ -24,7 +24,7 @@ router.get('/api/notes', (req, res) => {
   
   /* POST /api/notes should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client. You'll need to find a way to give each note a unique id when it's saved (look into npm packages that could do this for you).
   */
-  router.post('/api/notes', (req, res) => { // used to be app.post
+  router.post('/notes', (req, res) => { // used to be app.post
     // With POST requests, we can package up data, typically as an object, and send it to the server
     // req.body property is where we can access that data on the server side and do something with it
     let savedNotes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
