@@ -6,9 +6,6 @@
   * [ Description ](#about)
   * [ Usage ](#usage)
   * [ License ](#license)
-  * [ Badges ](#badges)
-  
-  
   * [ Questions ](#questions)
 
   <a name="about"></a>
@@ -17,8 +14,9 @@
 
   <a name="usage"></a>
   ## Usage
-  ![Screenshot of App Functionality](/assets/images/cli-output.jpg)
+  ([URL of deployed application](https://evening-citadel-10512.herokuapp.com/))
   
+  ![Screenshot of App Functionality](/assets/images/cli-output.jpg)
   
   <a name="license"></a>
   ## License
