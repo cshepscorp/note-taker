@@ -16,7 +16,7 @@
   ## Usage
   ([URL of deployed application](https://evening-citadel-10512.herokuapp.com/))
   
-  ![Screenshot of App Functionality](/assets/images/cli-output.jpg)
+  ![Screenshot of App Functionality](./public/assets/images/note-taker-ss.jpg)
   
   <a name="license"></a>
   ## License
